@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Enter year of release here"
-                android:inputType="text"
+                android:inputType="number"
                 android:textColor="#460D50"
                 android:textColorHighlight="#53125E"
                 android:textColorHint="#7E2D8C" />

@@ -108,8 +108,18 @@ public class ThirdActivity extends AppCompatActivity {
         // Get updated values from EditTexts
         String updatedTitle = titleEditText.getText().toString();
         String updatedGenres = genreEditText.getText().toString();
-        int updatedYear = Integer.parseInt(yearEditText.getText().toString());
+        String updatedYearStr = yearEditText.getText().toString();
         String updatedRatings = ratingSpinner.getSelectedItem().toString();
+
+        // Validate that the year is an integer
+        int updatedYear;
+        try {
+            updatedYear = Integer.parseInt(updatedYearStr);
+        } catch (NumberFormatException e) {
+            // Show an error message and return if the input is not a valid integer
+            Toast.makeText(this, "Please enter a valid year", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Update the movie object with the new values
         movie.setTitle(updatedTitle);

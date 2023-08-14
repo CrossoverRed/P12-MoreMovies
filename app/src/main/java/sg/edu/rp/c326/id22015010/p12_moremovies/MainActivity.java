@@ -41,12 +41,21 @@ public class MainActivity extends AppCompatActivity {
     public void saveMovie() {
         String title = eMovie.getText().toString().trim();
         String genre = eGenre.getText().toString().trim();
-        int year = Integer.parseInt(eYear.getText().toString().trim());
+        String yearStr = eYear.getText().toString().trim();
         String ratings = spinRating.getSelectedItem().toString().trim();
 
         // Check if any required fields are empty
-        if (TextUtils.isEmpty(title) || TextUtils.isEmpty(genre) || year == 0 || TextUtils.isEmpty(ratings)) {
+        if (TextUtils.isEmpty(title) || TextUtils.isEmpty(genre) || TextUtils.isEmpty(yearStr) || TextUtils.isEmpty(ratings)) {
             Toast.makeText(this, "Please fill in all the fields", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // Check if year is a valid integer
+        int year = 0;
+        try {
+            year = Integer.parseInt(yearStr);
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Please enter a valid year", Toast.LENGTH_LONG).show();
             return;
         }
 
