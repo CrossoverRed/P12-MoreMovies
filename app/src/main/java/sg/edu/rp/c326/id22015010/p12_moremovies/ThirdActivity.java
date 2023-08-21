@@ -168,7 +168,6 @@ public class ThirdActivity extends AppCompatActivity {
         myDialog.show();
     }
 
-
     @Override
     public void onBackPressed() {
         // Finish the activity without making any changes
